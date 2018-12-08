@@ -3,10 +3,10 @@ package freedomphones.checkoutsvc;
 import java.util.Arrays;
 import java.util.List;
 
-public class Error {
+public class ErrorList {
     public List<String> errors;
 
-    public Error(){
+    public ErrorList(){
         this.errors = Arrays.asList();
     }
     public List<String> getErrors(){

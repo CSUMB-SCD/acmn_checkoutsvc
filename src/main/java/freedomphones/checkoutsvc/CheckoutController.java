@@ -20,8 +20,8 @@ public class CheckoutController{
     ItemGetter itemGetter;
 
     @GetMapping(value = "/checkout/{username}")
-    public Error checkout(@PathVariable String username){
-        Error errors = new Error();
+    public ErrorList checkout(@PathVariable String username){
+        ErrorList errors = new ErrorList();
         Cart usercart = itemGetter.getCart(username);
         Stock stock = itemGetter.getStock();
         HashMap<String, ItemInfo> stockInfo = stock.getStock();
