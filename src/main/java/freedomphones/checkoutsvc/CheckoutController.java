@@ -1,5 +1,6 @@
 package freedomphones.checkoutsvc;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public class CheckoutController{
         Stock stock = itemGetter.getStock();
         HashMap<String, ItemInfo> stockInfo = stock.getStock();
         HashMap<String, Item> items = usercart.getItems();
-        List<String> low_stock = Collections.<String>emptyList();
+        List<String> low_stock = new ArrayList<>();
         Double total = 0.0;
         Boolean quantityError = false;
         for(Map.Entry<String, Item> entry: items.entrySet()) {
@@ -36,7 +37,7 @@ public class CheckoutController{
             ItemInfo iteminfo = stockInfo.get(entry.getKey());
             if(item.getQuantity() > iteminfo.getIn_stock()){
                 quantityError = true;
-                low_stock.add(entry.getKey());
+                low_stock.add(iteminfo.getName());
             }
             total += (item.getQuantity() * iteminfo.getPrice());
         }
