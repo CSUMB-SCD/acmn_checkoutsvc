@@ -1,13 +1,13 @@
 package freedomphones.checkoutsvc;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ErrorList {
     public List<String> errors;
 
     public ErrorList(){
-        this.errors = Arrays.asList();
+        this.errors = Collections.<String>emptyList();
     }
     public List<String> getErrors(){
         return this.errors;
